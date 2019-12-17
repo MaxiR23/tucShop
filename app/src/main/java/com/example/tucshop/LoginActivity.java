@@ -54,8 +54,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (user != null)
                 {
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    finish();
+                    //  Modificar
+                    System.out.println("Bienvenido");
 
                 } else {
                     System.out.println("Error al ingresar sesión");
