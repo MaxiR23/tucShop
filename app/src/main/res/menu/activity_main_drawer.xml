@@ -20,6 +20,11 @@
             android:id="@+id/nav_tools"
             android:icon="@drawable/ic_menu_profile"
             android:title="@string/menu_myprofile" />
+
+        <item
+            android:id="@+id/nav_categorias"
+            android:icon="@drawable/ic_format_list_bulleted_black_24dp"
+            android:title="@string/menu_categorias" />
     </group>
 
     <item android:title="Communicate">
@@ -34,5 +39,4 @@
                 android:title="@string/menu_send" />
         </menu>
     </item>
-
 </menu>
