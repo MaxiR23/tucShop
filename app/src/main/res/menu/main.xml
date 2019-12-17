@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_versión"
+        android:title="Versión"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_opcióncuents"
+        android:title="Opciones de cuenta"
+        app:showAsAction="never">
+
+        <menu>
+
+            <item
+                android:id="@+id/opción_restablecerC"
+                android:title="Restablecer contraseña">
+            </item>
+
+            <item
+                android:id="@+id/opción_cerrar_sesión"
+                android:title="Cerrar sesión">
+            </item>
+
+            <item
+                android:id="@+id/opcion_eliminarcuenta"
+                android:title="Eliminar cuenta">
+            </item>
+
+        </menu>
+
+    </item>
+
+</menu>

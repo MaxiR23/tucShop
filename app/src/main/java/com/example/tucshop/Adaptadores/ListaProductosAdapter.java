@@ -1,0 +1,64 @@
+package com.example.tucshop.Adaptadores;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.example.tucshop.Modelo.Productos;
+import com.example.tucshop.R;
+
+import java.util.List;
+
+public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAdapter.ViewHolder> {
+
+    private Context context;
+    private List<Productos> productosList;
+
+    public ListaProductosAdapter(Context context, List<Productos> productosList)
+    {
+        this.context = context;
+        this.productosList = productosList;
+    }
+
+    @NonNull
+    @Override
+    public ListaProductosAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_homeproductos_recyclerview, null,false);
+        return new ListaProductosAdapter.ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Productos productos = productosList.get(position);
+        holder.nombreProducto.setText(productos.getNombreProducto());
+        holder.montoProducto.setText(productos.getMontoProducto());
+        Glide.with(context).load(productos.getImagenProducto()).into(holder.imagenProducto);
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return productosList.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView nombreProducto, montoProducto;
+        private ImageView imagenProducto;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            nombreProducto = itemView.findViewById(R.id.tvNombreProducto);
+            montoProducto = itemView.findViewById(R.id.tvMontoProducto);
+            imagenProducto = itemView.findViewById(R.id.imageProducto);
+        }
+    }
+}
