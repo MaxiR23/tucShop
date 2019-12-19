@@ -1,6 +1,8 @@
 package com.example.tucshop.Adaptadores;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +13,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.tucshop.ActivityProductos.ProductosActivity;
 import com.example.tucshop.Modelo.Productos;
 import com.example.tucshop.R;
+import com.example.tucshop.ui.home.HomeFragment;
+import com.facebook.shimmer.Shimmer;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAdapter.ViewHolder> {
@@ -53,7 +59,7 @@ public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAd
         private TextView nombreProducto, montoProducto;
         private ImageView imagenProducto;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
 
             nombreProducto = itemView.findViewById(R.id.tvNombreProducto);
