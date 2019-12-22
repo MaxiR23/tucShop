@@ -5,14 +5,16 @@ public class Productos {
     private String imagenProducto;
     private String nombreProducto;
     private String montoProducto;
+    private String gpu;
 
     public Productos() {
     }
 
-    public Productos(String imagenProducto, String nombreProducto, String montoProducto) {
+    public Productos(String imagenProducto, String nombreProducto, String montoProducto, String gpu) {
         this.imagenProducto = imagenProducto;
         this.nombreProducto = nombreProducto;
         this.montoProducto = montoProducto;
+        this.gpu = gpu;
     }
 
     public String getImagenProducto() {
@@ -38,4 +40,10 @@ public class Productos {
     public void setMontoProducto(String montoProducto) {
         this.montoProducto = montoProducto;
     }
+
+    public String getGpu(){
+        return gpu;
+    }
+
+    public void setGpu(String gpu){this.gpu = gpu;}
 }

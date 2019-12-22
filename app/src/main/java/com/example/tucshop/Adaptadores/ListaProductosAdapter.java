@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,10 +43,21 @@ public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Productos productos = productosList.get(position);
+        final Productos productos = productosList.get(position);
         holder.nombreProducto.setText(productos.getNombreProducto());
         holder.montoProducto.setText(productos.getMontoProducto());
         Glide.with(context).load(productos.getImagenProducto()).into(holder.imagenProducto);
+
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ProductosActivity.class);
+                intent.putExtra("imagenProducto", productos.getImagenProducto());
+                intent.putExtra("nombreProducto", productos.getNombreProducto());
+                intent.putExtra("montoProducto", productos.getMontoProducto());
+                context.startActivity(intent);
+            }
+        });
     }
 
 
@@ -58,6 +70,7 @@ public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAd
 
         private TextView nombreProducto, montoProducto;
         private ImageView imagenProducto;
+        private LinearLayout linearLayout;
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
@@ -65,6 +78,7 @@ public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAd
             nombreProducto = itemView.findViewById(R.id.tvNombreProducto);
             montoProducto = itemView.findViewById(R.id.tvMontoProducto);
             imagenProducto = itemView.findViewById(R.id.imageProducto);
+            linearLayout = itemView.findViewById(R.id.linearLayout);
         }
     }
 }
