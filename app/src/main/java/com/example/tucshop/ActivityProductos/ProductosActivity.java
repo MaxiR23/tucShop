@@ -1,33 +1,31 @@
 package com.example.tucshop.ActivityProductos;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-import com.example.tucshop.Modelo.Productos;
 import com.example.tucshop.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 public class ProductosActivity extends AppCompatActivity {
 
     private TextView nombreProducto, precioProducto, tvAlto, tvAncho, tvBateria, tvcamFront, tvcamPrincipal, tvCantParlantes, tvCapacBateria,
             tvGpu, tvHMDI, tvLinea, tvMarca,tvMarcaProcesador, tvMemRam, tvMemInterna, tvModelProcesador, tvNuleos, tvPeso, tvRed, tvResolucion, tvSo, tvTamPantalla, tvTipoPantalla, tvUsb, tvversionSO, tvWifi;
+
     private ImageView imagenProducto;
+
     private DatabaseReference reference;
     private LinearLayout linearBateria, linearcamaraPrincipal, linearcamaraFront, linearCantidadParlantes, linearCapacBateria, linearGPU, linearHMDI, linearMemRam, linearMemInt, linearMarcaProcesador,
             linearModelProcesador, linearNucleos, linearRed, linearSO, linearUSB, linearVSO, linearWifi;
-    String nameProduct, priceProduct;
+
+    Context context;
+
+    String nameProduct, priceProduct, ancho, altura, batería, camaraFrontal, camaraPrincipal, cantidadParlantes, capacidadBateria, gpu, hdmi, linea, marca,
+     marcaProcesador, memoriaRam, memoriaInterna, modeloProcesador, nucleos, peso, red, resolucion, so, tamañoPantalla,
+      tipoPantalla, usb, versionSO, wifi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +39,34 @@ public class ProductosActivity extends AppCompatActivity {
 
         nameProduct = getIntent().getStringExtra("nombreProducto");
         priceProduct = getIntent().getStringExtra("montoProducto");
+
+        //Prubas
+        ancho = getIntent().getStringExtra("ancho");
+        altura = getIntent().getStringExtra("altura");
+        batería = getIntent().getStringExtra("bateria");
+        camaraFrontal = getIntent().getStringExtra("camFront");
+        camaraPrincipal = getIntent().getStringExtra("camPrincipal");
+        cantidadParlantes = getIntent().getStringExtra("cantParlantes");
+        capacidadBateria = getIntent().getStringExtra("capBateria");
+        gpu = getIntent().getStringExtra("gpu");
+        hdmi = getIntent().getStringExtra("hmdi");
+        linea = getIntent().getStringExtra("linea");
+        marca = getIntent().getStringExtra("marca");
+        marcaProcesador = getIntent().getStringExtra("marcaProcesador");
+        memoriaRam = getIntent().getStringExtra("memRam");
+        memoriaInterna = getIntent().getStringExtra("memInterna");
+        modeloProcesador = getIntent().getStringExtra("modelProcesador");
+        nucleos = getIntent().getStringExtra("nucleos");
+        peso = getIntent().getStringExtra("peso");
+        red = getIntent().getStringExtra("red");
+        resolucion = getIntent().getStringExtra("resolucion");
+        so = getIntent().getStringExtra("so");
+        tamañoPantalla = getIntent().getStringExtra("tamañoPantalla");
+        tipoPantalla = getIntent().getStringExtra("tipoPantalla");
+        usb = getIntent().getStringExtra("usb");
+        versionSO = getIntent().getStringExtra("vso");
+        wifi = getIntent().getStringExtra("wifi");
+        //
 
         nombreProducto.setText(nameProduct);
         precioProducto.setText(priceProduct);
@@ -76,6 +102,32 @@ public class ProductosActivity extends AppCompatActivity {
         tvWifi = findViewById(R.id.tvWIfi);
         //
 
+        tvAncho.setText(ancho);
+        tvAlto.setText(altura);
+        tvBateria.setText(batería);
+        tvcamFront.setText(camaraFrontal);
+        tvcamPrincipal.setText(camaraPrincipal);
+        tvCantParlantes.setText(cantidadParlantes);
+        tvCapacBateria.setText(capacidadBateria);
+        tvGpu.setText(gpu);
+        tvHMDI.setText(hdmi);
+        tvLinea.setText(linea);
+        tvMarca.setText(marca);
+        tvMarcaProcesador.setText(marcaProcesador);
+        tvMemRam.setText(memoriaRam);
+        tvMemInterna.setText(memoriaInterna);
+        tvModelProcesador.setText(modeloProcesador);
+        tvNuleos.setText(nucleos);
+        tvPeso.setText(peso);
+        tvRed.setText(red);
+        tvResolucion.setText(resolucion);
+        tvSo.setText(so);
+        tvTamPantalla.setText(tamañoPantalla);
+        tvTipoPantalla.setText(tipoPantalla);
+        tvUsb.setText(usb);
+        tvversionSO.setText(versionSO);
+        tvWifi.setText(wifi);
+
         //Linears
 
         linearBateria = findViewById(R.id.bateriaLinearLay);
@@ -97,96 +149,92 @@ public class ProductosActivity extends AppCompatActivity {
         linearWifi = findViewById(R.id.wifiLinear);
         //
 
-        reference = FirebaseDatabase.getInstance().getReference("Productos");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        //Condiciones para cada Producto
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+        if (batería.equals("") && gpu.equals("") && marcaProcesador.equals("")){
 
-                    Productos productos = snapshot.getValue(Productos.class);
+            linearBateria.setVisibility(View.GONE);
+            linearGPU.setVisibility(View.GONE);
+            linearMarcaProcesador.setVisibility(View.GONE);
 
-                    assert productos != null;
-                    Glide.with(getApplicationContext()).load(productos.getImagenProducto()).into(imagenProducto);
+        } else {
 
-                    /*
-                    tvAlto.setText(productos.getAltura());
-                    tvAncho.setText(productos.getAncho());
-                    tvLinea.setText(productos.getLinea());
-                    tvMarca.setText(productos.getMarca());
-                    tvPeso.setText(productos.getPeso());
-                    tvResolucion.setText(productos.getResolucion());
-                    tvTamPantalla.setText(productos.getTamañoPantalla());
-                    tvTipoPantalla.setText(productos.getTipoPantalla());
-                    tvUsb.setText(productos.getUsb());
+            linearBateria.setVisibility(View.VISIBLE);
+            linearGPU.setVisibility(View.VISIBLE);
+            linearMarcaProcesador.setVisibility(View.VISIBLE);
 
+        }
 
-                    if (productos.getBateria().equals("") || productos.getCamaraFrontal().equals("") || productos.getCamaraPrincipal().equals("") ||
-                            productos.getCantidadParlantes().equals("") || productos.getCapacidadBateria().equals("") || productos.getGpu().equals("") ||
-                            productos.getHdmi().equals("") || productos.getMemoriaInterna().equals("") || productos.getMemoriaRam().equals("") ||
-                            productos.getMarcaProcesador().equals("") || productos.getModeloProcesador().equals("") || productos.getNucleos().equals("") ||
-                            productos.getRed().equals("") || productos.getSo().equals("") || productos.getVersionSO().equals("") || productos.getWifi().equals("")) {
+        if (camaraFrontal.equals("") && camaraPrincipal.equals("") && capacidadBateria.equals("") && memoriaInterna.equals("") && red.equals(""))
+        {
+            linearcamaraFront.setVisibility(View.GONE);
+            linearcamaraPrincipal.setVisibility(View.GONE);
+            linearCapacBateria.setVisibility(View.GONE);
+            linearMemInt.setVisibility(View.GONE);
+            linearRed.setVisibility(View.GONE);
 
-                        linearBateria.setVisibility(View.GONE);
-                        linearcamaraFront.setVisibility(View.GONE);
-                        linearcamaraPrincipal.setVisibility(View.GONE);
-                        linearCantidadParlantes.setVisibility(View.GONE);
-                        linearCapacBateria.setVisibility(View.GONE);
-                        linearGPU.setVisibility(View.GONE);
-                        linearHMDI.setVisibility(View.GONE);
-                        linearMemInt.setVisibility(View.GONE);
-                        linearMemRam.setVisibility(View.GONE);
-                        linearMarcaProcesador.setVisibility(View.GONE);
-                        linearModelProcesador.setVisibility(View.GONE);
-                        linearNucleos.setVisibility(View.GONE);
-                        linearRed.setVisibility(View.GONE);
-                        linearSO.setVisibility(View.GONE);
-                        linearVSO.setVisibility(View.GONE);
-                        linearWifi.setVisibility(View.GONE);
+        } else {
 
-                    } else {
+            linearcamaraFront.setVisibility(View.VISIBLE);
+            linearcamaraPrincipal.setVisibility(View.VISIBLE);
+            linearCapacBateria.setVisibility(View.VISIBLE);
+            linearMemInt.setVisibility(View.VISIBLE);
+            linearRed.setVisibility(View.VISIBLE);
+        }
 
-                        linearBateria.setVisibility(View.VISIBLE);
-                        linearcamaraFront.setVisibility(View.VISIBLE);
-                        linearcamaraPrincipal.setVisibility(View.VISIBLE);
-                        linearCantidadParlantes.setVisibility(View.VISIBLE);
-                        linearCapacBateria.setVisibility(View.VISIBLE);
-                        linearGPU.setVisibility(View.VISIBLE);
-                        linearHMDI.setVisibility(View.VISIBLE);
-                        linearMemInt.setVisibility(View.VISIBLE);
-                        linearMemRam.setVisibility(View.VISIBLE);
-                        linearMarcaProcesador.setVisibility(View.VISIBLE);
-                        linearModelProcesador.setVisibility(View.VISIBLE);
-                        linearNucleos.setVisibility(View.VISIBLE);
-                        linearRed.setVisibility(View.VISIBLE);
-                        linearSO.setVisibility(View.VISIBLE);
-                        linearVSO.setVisibility(View.VISIBLE);
-                        linearWifi.setVisibility(View.VISIBLE);
+        if (cantidadParlantes.equals("") && wifi.equals(""))
+        {
 
-                        tvBateria.setText(productos.getBateria());
-                        tvcamFront.setText(productos.getCamaraFrontal());
-                        tvcamPrincipal.setText(productos.getCamaraPrincipal());
-                        tvCantParlantes.setText(productos.getCantidadParlantes());
-                        tvCapacBateria.setText(productos.getCapacidadBateria());
-                        tvGpu.setText(productos.getGpu());
-                        tvHMDI.setText(productos.getHdmi());
-                        tvMemInterna.setText(productos.getMemoriaInterna());
-                        tvMemRam.setText(productos.getMemoriaRam());
-                        tvMarcaProcesador.setText(productos.getMarcaProcesador());
-                        tvModelProcesador.setText(productos.getModeloProcesador());
-                        tvNuleos.setText(productos.getNucleos());
-                        tvRed.setText(productos.getRed());
-                        tvSo.setText(productos.getSo());
-                        tvversionSO.setText(productos.getVersionSO());
-                        tvWifi.setText(productos.getWifi());
-                    }*/
-                }
-            }
+            linearCantidadParlantes.setVisibility(View.GONE);
+            linearWifi.setVisibility(View.GONE);
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("Error: " + databaseError);
-            }
-        });
+        } else {
+
+            linearCantidadParlantes.setVisibility(View.VISIBLE);
+            linearWifi.setVisibility(View.VISIBLE);
+
+        }
+
+        if (hdmi.equals(""))
+        {
+            linearHMDI.setVisibility(View.GONE);
+        } else {
+            linearHMDI.setVisibility(View.VISIBLE);
+        }
+
+        if (memoriaRam.equals(""))
+        {
+            linearMemRam.setVisibility(View.GONE);
+        } else {
+            linearMemRam.setVisibility(View.VISIBLE);
+        }
+
+        if (modeloProcesador.equals(""))
+        {
+            linearModelProcesador.setVisibility(View.GONE);
+        } else {
+            linearModelProcesador.setVisibility(View.VISIBLE);
+        }
+
+        if (nucleos.equals(""))
+        {
+            linearNucleos.setVisibility(View.GONE);
+        } else {
+            linearNucleos.setVisibility(View.VISIBLE);
+        }
+
+        if (so.equals(""))
+        {
+            linearSO.setVisibility(View.GONE);
+        } else {
+            linearSO.setVisibility(View.VISIBLE);
+        }
+
+        if (versionSO.equals(""))
+        {
+            linearVSO.setVisibility(View.GONE);
+        } else {
+            linearSO.setVisibility(View.VISIBLE);
+        }
     }
 }

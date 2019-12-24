@@ -177,4 +177,363 @@
 
     </ScrollView>
 
+    <LinearLayout
+        android:id="@+id/linearProductosRVGONE"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Marca: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvMarca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Samsung">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Linea: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvlinea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Samsung">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Alto: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvAlto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="altoProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Ancho: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvAncho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="anchoProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Peso: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvPeso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pesoProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Tamaño de pantalla: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvTamañoPantalla"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pantallaProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Tipo de Pantalla: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvTipoPantalla"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tipoPanProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Resolucion: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvResolucion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="resolucionProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="USB: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvUSB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="usbProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Batería: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvBateria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bateProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Camara frontal: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvCamFrontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="camaraProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Camara principal: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvCamPrincipal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="camaraProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Cantidad de parlantes: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvCantidadParlantes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="parlProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Capacidad de batería: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvCapacidadBat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="capProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="GPU: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvGPU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="gpuProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="HMDI: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvHMDI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hdmiProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="RAM: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvRAM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ramProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Memoria Interna: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvMemInterna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="internaProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Marca del procesador: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvMarcaProcesador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="modeloPProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Modelo procesador: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvModeloProcesador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="modeloPProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Nucleos: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvNucleos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nucleosProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Red: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvRed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="redProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="SO: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvSO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="soProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Versión SO: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvVSO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vSOProd">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Wifi: ">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvWIfi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="wifiProd">
+        </TextView>
+
+    </LinearLayout>
+
 </LinearLayout>
