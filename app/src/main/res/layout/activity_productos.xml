@@ -10,8 +10,7 @@
     <ImageView
         android:id="@+id/imageProducto"
         android:layout_width="match_parent"
-        android:layout_height="565px"
-        android:scaleType="centerInside">
+        android:layout_height="565px">
     </ImageView>
 
     <TextView

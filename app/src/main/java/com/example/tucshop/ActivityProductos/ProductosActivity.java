@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.tucshop.R;
 import com.google.firebase.database.DatabaseReference;
 
@@ -25,7 +28,7 @@ public class ProductosActivity extends AppCompatActivity {
 
     String nameProduct, priceProduct, ancho, altura, batería, camaraFrontal, camaraPrincipal, cantidadParlantes, capacidadBateria, gpu, hdmi, linea, marca,
      marcaProcesador, memoriaRam, memoriaInterna, modeloProcesador, nucleos, peso, red, resolucion, so, tamañoPantalla,
-      tipoPantalla, usb, versionSO, wifi;
+      tipoPantalla, usb, versionSO, wifi, url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +69,13 @@ public class ProductosActivity extends AppCompatActivity {
         usb = getIntent().getStringExtra("usb");
         versionSO = getIntent().getStringExtra("vso");
         wifi = getIntent().getStringExtra("wifi");
+        url = getIntent().getStringExtra("image");
         //
+
+        Glide.with(this)
+                .load(url)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(imagenProducto);
 
         nombreProducto.setText(nameProduct);
         precioProducto.setText(priceProduct);

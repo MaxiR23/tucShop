@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.tucshop.ActivityProductos.ProductosActivity;
 import com.example.tucshop.Modelo.Productos;
 import com.example.tucshop.R;
@@ -78,7 +79,7 @@ public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAd
        holder.tvWifi.setText(productos.getWifi());
         //
 
-        Glide.with(context).load(productos.getImagenProducto()).into(holder.imagenProducto);
+        Glide.with(context).load(productos.getImagenProducto()).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.imagenProducto);
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +112,7 @@ public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAd
                 intent.putExtra("so", productos.getSo());
                 intent.putExtra("vso", productos.getVersionSO());
                 intent.putExtra("wifi", productos.getWifi());
+                intent.putExtra("image", productos.getImagenProducto());
 
                 context.startActivity(intent);
             }
