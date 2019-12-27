@@ -642,4 +642,10 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btn_comprar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comprar"/>
+
 </LinearLayout>

@@ -50,13 +50,6 @@ public class HomeFragment extends Fragment {
         rvHomeProductos.setLayoutManager(new LinearLayoutManager(getContext()));
         shimmerFrameLayout = root.findViewById(R.id.shimmer_view_container);
 
-        rvHomeProductos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         consultaProductos();
 
         return root;

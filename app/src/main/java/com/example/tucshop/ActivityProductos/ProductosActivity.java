@@ -2,14 +2,17 @@ package com.example.tucshop.ActivityProductos;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.tucshop.Dialogs.Dialogconfirmación_compra;
 import com.example.tucshop.R;
 import com.google.firebase.database.DatabaseReference;
 
@@ -19,6 +22,8 @@ public class ProductosActivity extends AppCompatActivity {
             tvGpu, tvHMDI, tvLinea, tvMarca,tvMarcaProcesador, tvMemRam, tvMemInterna, tvModelProcesador, tvNuleos, tvPeso, tvRed, tvResolucion, tvSo, tvTamPantalla, tvTipoPantalla, tvUsb, tvversionSO, tvWifi;
 
     private ImageView imagenProducto;
+
+    private Button btnComprar;
 
     private DatabaseReference reference;
     private LinearLayout linearBateria, linearcamaraPrincipal, linearcamaraFront, linearCantidadParlantes, linearCapacBateria, linearGPU, linearHMDI, linearMemRam, linearMemInt, linearMarcaProcesador,
@@ -34,6 +39,16 @@ public class ProductosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_productos);
+
+        btnComprar = findViewById(R.id.btn_comprar);
+
+        btnComprar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialogconfirmación_compra confirmación_compra = new Dialogconfirmación_compra();
+                confirmación_compra.show(getSupportFragmentManager(), "confirmacion_compra");
+            }
+        });
 
         //TV Principales
         nombreProducto = findViewById(R.id.nombreProducto);
