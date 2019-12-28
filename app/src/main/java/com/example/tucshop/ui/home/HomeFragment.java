@@ -3,6 +3,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ViewFlipper;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,6 +33,8 @@ public class HomeFragment extends Fragment {
     private ListaProductosAdapter adapter;
     private ShimmerFrameLayout shimmerFrameLayout;
 
+    private ViewFlipper viewFlipper;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
    /*     homeViewModel =
@@ -42,6 +47,15 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });*/
+
+        int imagenes [] = {R.drawable.tucshoplanding, R.drawable.galaxys10highlightkvl, R.drawable.skyworthlaunc};
+
+        viewFlipper = root.findViewById(R.id.image);
+
+        for (int i = 0; i < imagenes.length; i++)
+        {
+            flipperImage(imagenes[i]);
+        }
 
         productosArrayList = new ArrayList<>();
         rvHomeProductos = root.findViewById(R.id.rvHomeProductos);
@@ -79,5 +93,18 @@ public class HomeFragment extends Fragment {
 
             }
         });
+    }
+
+    public void flipperImage(int image)
+    {
+        ImageView imageView = new ImageView(getContext());
+        imageView.setBackgroundResource(image);
+
+        viewFlipper.addView(imageView);
+        viewFlipper.setFlipInterval(4000);
+        viewFlipper.setAutoStart(true);
+
+        viewFlipper.setInAnimation(getContext(), android.R.anim.slide_in_left);
+        viewFlipper.setInAnimation(getContext(), android.R.anim.slide_out_right);
     }
 }

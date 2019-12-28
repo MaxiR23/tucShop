@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -19,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 public class ProductosActivity extends AppCompatActivity {
 
     private TextView nombreProducto, precioProducto, tvAlto, tvAncho, tvBateria, tvcamFront, tvcamPrincipal, tvCantParlantes, tvCapacBateria,
-            tvGpu, tvHMDI, tvLinea, tvMarca,tvMarcaProcesador, tvMemRam, tvMemInterna, tvModelProcesador, tvNuleos, tvPeso, tvRed, tvResolucion, tvSo, tvTamPantalla, tvTipoPantalla, tvUsb, tvversionSO, tvWifi;
+            tvGpu, tvHMDI, tvLinea, tvMarca, tvMarcaProcesador, tvMemRam, tvMemInterna, tvModelProcesador, tvNuleos, tvPeso, tvRed, tvResolucion, tvSo, tvTamPantalla, tvTipoPantalla, tvUsb, tvversionSO, tvWifi;
 
     private ImageView imagenProducto;
 
@@ -31,9 +34,12 @@ public class ProductosActivity extends AppCompatActivity {
 
     Context context;
 
+
+    boolean isImageFitToScreen;
+
     String nameProduct, priceProduct, ancho, altura, batería, camaraFrontal, camaraPrincipal, cantidadParlantes, capacidadBateria, gpu, hdmi, linea, marca,
-     marcaProcesador, memoriaRam, memoriaInterna, modeloProcesador, nucleos, peso, red, resolucion, so, tamañoPantalla,
-      tipoPantalla, usb, versionSO, wifi, url;
+            marcaProcesador, memoriaRam, memoriaInterna, modeloProcesador, nucleos, peso, red, resolucion, so, tamañoPantalla,
+            tipoPantalla, usb, versionSO, wifi, url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,7 +181,7 @@ public class ProductosActivity extends AppCompatActivity {
 
         //Condiciones para cada Producto
 
-        if (batería.equals("") && gpu.equals("") && marcaProcesador.equals("")){
+        if (batería.equals("") && gpu.equals("") && marcaProcesador.equals("")) {
 
             linearBateria.setVisibility(View.GONE);
             linearGPU.setVisibility(View.GONE);
@@ -189,8 +195,7 @@ public class ProductosActivity extends AppCompatActivity {
 
         }
 
-        if (camaraFrontal.equals("") && camaraPrincipal.equals("") && capacidadBateria.equals("") && memoriaInterna.equals("") && red.equals(""))
-        {
+        if (camaraFrontal.equals("") && camaraPrincipal.equals("") && capacidadBateria.equals("") && memoriaInterna.equals("") && red.equals("")) {
             linearcamaraFront.setVisibility(View.GONE);
             linearcamaraPrincipal.setVisibility(View.GONE);
             linearCapacBateria.setVisibility(View.GONE);
@@ -206,8 +211,7 @@ public class ProductosActivity extends AppCompatActivity {
             linearRed.setVisibility(View.VISIBLE);
         }
 
-        if (cantidadParlantes.equals("") && wifi.equals(""))
-        {
+        if (cantidadParlantes.equals("") && wifi.equals("")) {
 
             linearCantidadParlantes.setVisibility(View.GONE);
             linearWifi.setVisibility(View.GONE);
@@ -219,43 +223,37 @@ public class ProductosActivity extends AppCompatActivity {
 
         }
 
-        if (hdmi.equals(""))
-        {
+        if (hdmi.equals("")) {
             linearHMDI.setVisibility(View.GONE);
         } else {
             linearHMDI.setVisibility(View.VISIBLE);
         }
 
-        if (memoriaRam.equals(""))
-        {
+        if (memoriaRam.equals("")) {
             linearMemRam.setVisibility(View.GONE);
         } else {
             linearMemRam.setVisibility(View.VISIBLE);
         }
 
-        if (modeloProcesador.equals(""))
-        {
+        if (modeloProcesador.equals("")) {
             linearModelProcesador.setVisibility(View.GONE);
         } else {
             linearModelProcesador.setVisibility(View.VISIBLE);
         }
 
-        if (nucleos.equals(""))
-        {
+        if (nucleos.equals("")) {
             linearNucleos.setVisibility(View.GONE);
         } else {
             linearNucleos.setVisibility(View.VISIBLE);
         }
 
-        if (so.equals(""))
-        {
+        if (so.equals("")) {
             linearSO.setVisibility(View.GONE);
         } else {
             linearSO.setVisibility(View.VISIBLE);
         }
 
-        if (versionSO.equals(""))
-        {
+        if (versionSO.equals("")) {
             linearVSO.setVisibility(View.GONE);
         } else {
             linearSO.setVisibility(View.VISIBLE);
