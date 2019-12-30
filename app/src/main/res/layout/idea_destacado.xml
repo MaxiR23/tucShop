@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@android:color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtDestacadodeSemana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/black"
+                android:textSize="19sp"
+                android:text="Destacado de la semana"/>
+
+            <View
+                android:id="@+id/viewSepardor"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="@color/lightgray"
+                android:layout_below="@+id/txtDestacadodeSemana"/>
+
+            <LinearLayout
+                android:id="@+id/linearimgSemana"
+                android:layout_below="@+id/viewSepardor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgProductodeSemana"
+                    android:layout_width="315px"
+                    android:layout_height="315px"
+                    android:src="@drawable/category_smartphones"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvNombreArticulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="Nombre del artículo"
+                android:layout_toRightOf="@+id/linearimgSemana"
+                android:layout_below="@id/viewSepardor"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="3dp"/>
+
+            <TextView
+                android:id="@+id/$"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="19sp"
+                android:text="$"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@+id/linearimgSemana"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/tvNombreArticulo"/>
+
+            <TextView
+                android:id="@+id/montoProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="19sp"
+                android:text="50.000"
+                android:layout_marginLeft="2dp"
+                android:layout_toRightOf="@+id/$"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/tvNombreArticulo"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

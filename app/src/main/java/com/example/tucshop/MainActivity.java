@@ -2,6 +2,7 @@ package com.example.tucshop;
 import android.content.Intent;
 import android.os.Bundle;
 import com.bumptech.glide.Glide;
+import com.example.tucshop.Dialogs.DialogActualizacion;
 import com.example.tucshop.Dialogs.DialogEliminarCuenta;
 import com.example.tucshop.Dialogs.DialogRecoveryPass;
 import com.example.tucshop.Modelo.Usuarios;
@@ -133,6 +134,9 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.action_versión :
+                DialogActualizacion dialogActualizacion = new DialogActualizacion();
+                dialogActualizacion.show(getSupportFragmentManager(), "dialogActualización");
+                finish();
                 break;
             case R.id.action_opcióncuents :
                 break;
@@ -147,10 +151,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
-                break;
-            case  R.id.opcion_eliminarcuenta :
-                DialogEliminarCuenta eliminarCuenta = new DialogEliminarCuenta();
-                eliminarCuenta.show(getSupportFragmentManager(), "dialogEliminar");
                 break;
         }
         return super.onOptionsItemSelected(item);
