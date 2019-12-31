@@ -6,8 +6,7 @@ import com.bumptech.glide.Glide;
 import com.example.tucshop.Dialogs.DialogActualizacion;
 import com.example.tucshop.Dialogs.DialogRecoveryPass;
 import com.example.tucshop.Modelo.Usuarios;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+
 import android.view.MenuItem;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -128,14 +127,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_versión :
                 DialogActualizacion dialogActualizacion = new DialogActualizacion();
                 dialogActualizacion.show(getSupportFragmentManager(), "dialogActualización");
-                finish();
                 break;
             case R.id.action_opcióncuents :
                 break;
             case R.id.opción_restablecerC :
                 DialogRecoveryPass dialogRecoveryPass = new DialogRecoveryPass();
                 dialogRecoveryPass.show(getSupportFragmentManager(), "dialogRecovery");
-                finish();
                 break;
             case R.id.opción_cerrar_sesión :
                 firebaseAuth.signOut();
