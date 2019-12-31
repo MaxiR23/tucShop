@@ -1,9 +1,9 @@
 package com.example.tucshop;
+
 import android.content.Intent;
 import android.os.Bundle;
 import com.bumptech.glide.Glide;
 import com.example.tucshop.Dialogs.DialogActualizacion;
-import com.example.tucshop.Dialogs.DialogEliminarCuenta;
 import com.example.tucshop.Dialogs.DialogRecoveryPass;
 import com.example.tucshop.Modelo.Usuarios;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;

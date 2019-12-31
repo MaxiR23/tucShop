@@ -210,26 +210,6 @@ public class LoginActivity extends AppCompatActivity {
                   progressDialog.dismiss();
               }
 
-              /*
-              if (!task.isSuccessful())
-              {
-                  Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
-                  progressDialog.dismiss();
-              } else {
-                  FirebaseUser user = firebaseAuth.getCurrentUser();
-                  if (!user.isEmailVerified())
-                  {
-                      Toast.makeText(getApplicationContext(), "Email: " + user.getEmail() + ", no verificado", Toast.LENGTH_LONG).show();
-                      progressDialog.dismiss();
-                  } else {
-                      Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                      intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                      startActivity(intent);
-                      finish();
-                      validarCheckBox();
-                      progressDialog.dismiss();
-                  }
-              }*/
           }
       });
     }

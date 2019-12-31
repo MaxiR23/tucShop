@@ -19,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Locale;
 
 public class Dialogconfirmación_compra extends AppCompatDialogFragment {
 

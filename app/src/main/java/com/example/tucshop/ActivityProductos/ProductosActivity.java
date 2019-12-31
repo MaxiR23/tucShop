@@ -1,23 +1,19 @@
 package com.example.tucshop.ActivityProductos;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
+
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.tucshop.Dialogs.Dialogconfirmación_compra;
 import com.example.tucshop.R;
-import com.google.firebase.database.DatabaseReference;
 
 public class ProductosActivity extends AppCompatActivity {
 
@@ -28,14 +24,8 @@ public class ProductosActivity extends AppCompatActivity {
 
     private Button btnComprar;
 
-    private DatabaseReference reference;
     private LinearLayout linearBateria, linearcamaraPrincipal, linearcamaraFront, linearCantidadParlantes, linearCapacBateria, linearGPU, linearHMDI, linearMemRam, linearMemInt, linearMarcaProcesador,
             linearModelProcesador, linearNucleos, linearRed, linearSO, linearUSB, linearVSO, linearWifi;
-
-    Context context;
-
-
-    boolean isImageFitToScreen;
 
     String nameProduct, priceProduct, ancho, altura, batería, camaraFrontal, camaraPrincipal, cantidadParlantes, capacidadBateria, gpu, hdmi, linea, marca,
             marcaProcesador, memoriaRam, memoriaInterna, modeloProcesador, nucleos, peso, red, resolucion, so, tamañoPantalla,
@@ -64,7 +54,6 @@ public class ProductosActivity extends AppCompatActivity {
         nameProduct = getIntent().getStringExtra("nombreProducto");
         priceProduct = getIntent().getStringExtra("montoProducto");
 
-        //Prubas
         ancho = getIntent().getStringExtra("ancho");
         altura = getIntent().getStringExtra("altura");
         batería = getIntent().getStringExtra("bateria");
@@ -91,7 +80,6 @@ public class ProductosActivity extends AppCompatActivity {
         versionSO = getIntent().getStringExtra("vso");
         wifi = getIntent().getStringExtra("wifi");
         url = getIntent().getStringExtra("image");
-        //
 
         Glide.with(this)
                 .load(url)
@@ -100,7 +88,6 @@ public class ProductosActivity extends AppCompatActivity {
 
         nombreProducto.setText(nameProduct);
         precioProducto.setText(priceProduct);
-        //
 
         //TV de las caracteristicas
 

@@ -4,10 +4,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,7 +13,6 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.example.tucshop.MainActivity;
 import com.example.tucshop.R;
-import com.example.tucshop.ui.home.HomeFragment;
 
 public class DialogCompra extends AppCompatDialogFragment {
 

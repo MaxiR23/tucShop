@@ -54,7 +54,7 @@ public class DialogActualizacion extends AppCompatDialogFragment {
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_actualizacion, null);
-
+/*
         final ImageButton btnActualizar = view.findViewById(R.id.btnActualizarac);
         final TextView tv_version = view.findViewById(R.id.tvinforme);
         final TextView tvActualizacion = view.findViewById(R.id.tvActualización);
@@ -151,6 +151,7 @@ public class DialogActualizacion extends AppCompatDialogFragment {
 
         //Notificacion con el estado de la descarga
 
+
         BroadcastReceiver receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -179,7 +180,7 @@ public class DialogActualizacion extends AppCompatDialogFragment {
             }
         };
         getActivity().registerReceiver(receiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE)); //Ejecuta el registro de la descarga completa
-
+*/
         builder.setView(view);
         return builder.create();
     }

@@ -2,8 +2,6 @@ package com.example.tucshop.Adaptadores;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,17 +17,11 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.tucshop.ActivityProductos.ProductosActivity;
 import com.example.tucshop.Modelo.Productos;
 import com.example.tucshop.R;
-import com.example.tucshop.ui.home.HomeFragment;
-import com.facebook.shimmer.Shimmer;
-
-import java.io.ByteArrayOutputStream;
-import java.io.Serializable;
 import java.util.List;
 
 public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAdapter.ViewHolder> {
 
     private Context context;
-    Bitmap bitmap;
     private List<Productos> productosList;
 
     public ListaProductosAdapter(Context context, List<Productos> productosList)
