@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 assert usuarios != null;
                 tvUser.setText(usuarios.getNombre());
                 if (usuarios.getImageURL().equals("default")) {
-                    imageProfile.setImageResource(R.mipmap.ic_launcher);
+                    imageProfile.setImageResource(R.drawable.user);
                 } else {
                     Glide.with(getApplicationContext()).load(usuarios.getImageURL()).into(imageProfile);
                 }

@@ -183,7 +183,7 @@ public class ToolsFragment extends Fragment {
                     tvCodigoPostal.setText(usuarios.getCódigoPostal());
 
                     if (usuarios.getImageURL().equals("default")) {
-                        imageProfile.setImageResource(R.mipmap.ic_launcher);
+                        imageProfile.setImageResource(R.drawable.user);
                     } else {
                         Glide.with(getContext()).load(usuarios.getImageURL()).into(imageProfile);
                     }
