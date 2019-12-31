@@ -29,7 +29,7 @@ public class HomeFragment extends Fragment {
     private DatabaseReference reference;
     private HomeViewModel homeViewModel;
     private RecyclerView rvHomeProductos;
-    private List<Productos> productosArrayList;
+    private List<Productos> productosList;
     private ListaProductosAdapter adapter;
     private ShimmerFrameLayout shimmerFrameLayout;
 
@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment {
             flipperImage(imagenes[i]);
         }
 
-        productosArrayList = new ArrayList<>();
+        productosList = new ArrayList<>();
         rvHomeProductos = root.findViewById(R.id.rvHomeProductos);
         rvHomeProductos.setHasFixedSize(true);
         rvHomeProductos.setNestedScrollingEnabled(false);
@@ -75,13 +75,13 @@ public class HomeFragment extends Fragment {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                productosArrayList.clear();
+                productosList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren())
                 {
                     Productos productos = snapshot.getValue(Productos.class);
-                    productosArrayList.add(productos);
+                    productosList.add(productos);
 
-                    adapter = new ListaProductosAdapter(getContext(), productosArrayList);
+                    adapter = new ListaProductosAdapter(getContext(), productosList);
                     adapter.notifyDataSetChanged();
                     rvHomeProductos.setAdapter(adapter);
                     shimmerFrameLayout.stopShimmer();

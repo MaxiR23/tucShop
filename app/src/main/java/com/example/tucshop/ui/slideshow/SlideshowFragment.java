@@ -1,5 +1,6 @@
 package com.example.tucshop.ui.slideshow;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.example.tucshop.ActivityProductos.ActivityCategoriaSmartPhones;
 import com.example.tucshop.R;
 
 public class SlideshowFragment extends Fragment {
@@ -24,6 +26,12 @@ public class SlideshowFragment extends Fragment {
         final View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
 
         cvSmartPhone = root.findViewById(R.id.cvSmart);
+        cvSmartPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ActivityCategoriaSmartPhones.class));
+            }
+        });
 
         cvSmartTV = root.findViewById(R.id.cvSmartTV);
 

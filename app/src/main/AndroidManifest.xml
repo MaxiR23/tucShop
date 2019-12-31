@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityProductos.ProductosActivity"></activity>
+        <activity android:name=".ActivityProductos.ActivityCategoriaSmartPhones"></activity>
+        <activity android:name=".ActivityProductos.ProductosActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"

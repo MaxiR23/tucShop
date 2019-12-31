@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityProductos.ActivityCategoriaSmartPhones">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCSM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="SmartPhones"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_productodestacado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarCSM"
+        android:padding="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp">
+
+        <include layout="@layout/load_productodestacado_recyclerview"/>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProductoDestacado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:padding="10dp"
+        android:layout_below="@+id/image">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/rvProductoDestacado"
+        android:id="@+id/rvCSmartPhones"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

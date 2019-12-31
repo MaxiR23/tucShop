@@ -43,7 +43,7 @@ public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAd
         holder.nombreProducto.setText(productos.getNombreProducto());
         holder.montoProducto.setText(productos.getMontoProducto());
 
-        //Prueba
+        //tv Ocultos para pasarlos como caracteristicas al sig activity
        holder.tvAlto.setText(productos.getAltura());
        holder.tvAncho.setText(productos.getAncho());
        holder.tvLinea.setText(productos.getLinea());
@@ -132,8 +132,9 @@ public class ListaProductosAdapter extends RecyclerView.Adapter<ListaProductosAd
             imagenProducto = itemView.findViewById(R.id.imageProducto);
             linearLayout = itemView.findViewById(R.id.linearLayout);
 
+            //Caracteristicas Escondidas
+
             linearLayoutGONE = itemView.findViewById(R.id.linearProductosRVGONE);
-            // Prueba
 
             tvAlto = itemView.findViewById(R.id.tvAlto);
             tvAncho = itemView.findViewById(R.id.tvAncho);
