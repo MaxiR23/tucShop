@@ -12,8 +12,7 @@
     <string name="menu_shop">Mis compras</string>
     <string name="menu_favs">Favoritos</string>
     <string name="menu_myprofile">Mi cuenta</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
+    <string name="menu_send">Contacto</string>
     <string name="modificar_datos">Modificar datos</string>
     <string name="menu_categorias">Categorías</string>
 

@@ -53,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         };
 
-        progressDialog = new ProgressDialog(this);
+        progressDialog = new ProgressDialog(this, R.style.AppCompatAlertDialogStyle);
         progressDialog.setMessage("Registro en curso");
 
         inputTextNombre = findViewById(R.id.inputNombre);

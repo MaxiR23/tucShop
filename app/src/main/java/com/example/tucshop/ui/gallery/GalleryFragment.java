@@ -6,7 +6,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -16,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tucshop.Adaptadores.ListaMisComprasAdapter;
 import com.example.tucshop.Modelo.Compras;
 import com.example.tucshop.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,6 +55,14 @@ public class GalleryFragment extends Fragment {
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+            if (comprasList.isEmpty()) {
+                //contenido.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.VISIBLE);
+            } else {
+                //contenido.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.GONE);
+            }
+
         consultarCompras();
         /*
         final TextView textView = root.findViewById(R.id.text_gallery);
@@ -65,7 +78,10 @@ public class GalleryFragment extends Fragment {
 
     private void consultarCompras() {
 
-        reference = FirebaseDatabase.getInstance().getReference("Compras");
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        String ruta = firebaseUser.getUid();
+
+        reference = FirebaseDatabase.getInstance().getReference("Compras").child(ruta);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

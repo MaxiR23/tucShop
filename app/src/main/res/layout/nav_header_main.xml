@@ -15,8 +15,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageprofile"
-        android:layout_width="210px"
-        android:layout_height="210px"
+        android:layout_width="230px"
+        android:layout_height="230px"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
         android:contentDescription="@string/nav_header_desc"

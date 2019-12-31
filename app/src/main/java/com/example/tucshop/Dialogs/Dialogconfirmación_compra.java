@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.example.tucshop.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -36,7 +38,7 @@ public class Dialogconfirmación_compra extends AppCompatDialogFragment {
         builder.setView(view);
 
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         final String date = format.format(calendar.getTime());
 
         tvnombreProducto = view.findViewById(R.id.tvNombreProducto);
@@ -64,11 +66,14 @@ public class Dialogconfirmación_compra extends AppCompatDialogFragment {
 
     private void confirmaciónCompra(String nombreProducto, String montoProducto, String date) {
 
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        String ruta = firebaseUser.getUid();
+
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Compras");
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("nombreProducto", nombreProducto);
         hashMap.put("montoProducto", montoProducto);
         hashMap.put("date", date);
-        reference.push().setValue(hashMap);
+        reference.child(ruta).push().setValue(hashMap);
     }
 }
