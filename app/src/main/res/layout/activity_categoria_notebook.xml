@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityProductos.ActivityCategoriaSmartPhones">
+    tools:context=".ActivityProductos.ActivityCategoriaNotebook">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="SmartPhones"
+        app:title="Notebooks"
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
@@ -30,15 +30,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <include layout="@layout/load_item_recyclerhome"/>
+            <include layout="@layout/load_item_recyclerhome"/>
 
-        <include layout="@layout/load_item_recyclerhome"/>
-
-        <include layout="@layout/load_item_recyclerhome"/>
-
-        <include layout="@layout/load_item_recyclerhome"/>
-
-        <include layout="@layout/load_item_recyclerhome"/>
+            <include layout="@layout/load_item_recyclerhome"/>
 
         </LinearLayout>
 
@@ -46,7 +40,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/toolbar"
-        android:id="@+id/rvCSmartPhones"
+        android:id="@+id/rvCNotebook"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

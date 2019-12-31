@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityProductos.ActivityCategoriaSmartPhones"></activity>
+        <activity android:name=".ActivityProductos.ActivityCategoriaNotebook"></activity>
+        <activity android:name=".ActivityProductos.ActivityCategoriaSmartTV" />
+        <activity android:name=".ActivityProductos.ActivityCategoriaSmartPhones" />
         <activity android:name=".ActivityProductos.ProductosActivity" />
         <activity
             android:name=".MainActivity"

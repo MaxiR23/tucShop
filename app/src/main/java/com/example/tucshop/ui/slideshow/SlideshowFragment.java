@@ -11,7 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.example.tucshop.ActivityProductos.ActivityCategoriaNotebook;
 import com.example.tucshop.ActivityProductos.ActivityCategoriaSmartPhones;
+import com.example.tucshop.ActivityProductos.ActivityCategoriaSmartTV;
 import com.example.tucshop.R;
 
 public class SlideshowFragment extends Fragment {
@@ -34,8 +36,20 @@ public class SlideshowFragment extends Fragment {
         });
 
         cvSmartTV = root.findViewById(R.id.cvSmartTV);
+        cvSmartTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ActivityCategoriaSmartTV.class));
+            }
+        });
 
         cvNotebook = root.findViewById(R.id.cvNotebook);
+        cvNotebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ActivityCategoriaNotebook.class));
+            }
+        });
 
         return root;
     }

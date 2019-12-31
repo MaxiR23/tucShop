@@ -3,7 +3,6 @@ package com.example.tucshop.ActivityProductos;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,7 +10,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.example.tucshop.Adaptadores.ListaProductosAdapter;
 import com.example.tucshop.Dialogs.DialogActualizacion;
@@ -23,7 +21,6 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -31,60 +28,58 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActivityCategoriaSmartPhones extends AppCompatActivity {
+public class ActivityCategoriaSmartTV extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     List<Productos> productosList;
     ListaProductosAdapter adapter;
-    private RecyclerView rvCSP;
+    private RecyclerView rvCSTV;
     private ShimmerFrameLayout shimmerProductos;
     private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_categoria_smart_phones);
-
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_categoria_smart_tv);
 
         productosList = new ArrayList<>();
-        rvCSP = findViewById(R.id.rvCSmartPhones);
-        rvCSP.setHasFixedSize(true);
-        rvCSP.setNestedScrollingEnabled(false);
-        rvCSP.setLayoutManager(new LinearLayoutManager(this));
+        rvCSTV = findViewById(R.id.rvCSmartTV);
+        rvCSTV.setHasFixedSize(true);
+        rvCSTV.setNestedScrollingEnabled(false);
+        rvCSTV.setLayoutManager(new LinearLayoutManager(this));
 
         shimmerProductos = findViewById(R.id.shimmer_productos);
 
         consultarProductos();
 
     }
-        private void consultarProductos() {
-            shimmerProductos.startShimmer();
 
-            Query query = FirebaseDatabase.getInstance().getReference("Productos").orderByChild("categoria").equalTo("Smartphone");
-            query.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    productosList.clear();
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Productos productos = snapshot.getValue(Productos.class);
-                        productosList.add(productos);
+    private void consultarProductos() {
+        shimmerProductos.startShimmer();
 
-                        adapter = new ListaProductosAdapter(ActivityCategoriaSmartPhones.this, productosList);
-                        adapter.notifyDataSetChanged();
-                        rvCSP.setAdapter(adapter);
+        Query query = FirebaseDatabase.getInstance().getReference("Productos").orderByChild("categoria").equalTo("SmartTV");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                productosList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Productos productos = snapshot.getValue(Productos.class);
+                    productosList.add(productos);
 
-                        shimmerProductos.stopShimmer();
-                    }
+                    adapter = new ListaProductosAdapter(ActivityCategoriaSmartTV.this, productosList);
+                    adapter.notifyDataSetChanged();
+                    rvCSTV.setAdapter(adapter);
+
+                    shimmerProductos.stopShimmer();
                 }
+            }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                }
+            }
 
-            });
+        });
     }
 
     @Override
@@ -113,7 +108,7 @@ public class ActivityCategoriaSmartPhones extends AppCompatActivity {
                 break;
             case R.id.opción_cerrar_sesión :
                 firebaseAuth.signOut();
-                Intent intent = new Intent(ActivityCategoriaSmartPhones.this, LoginActivity.class);
+                Intent intent = new Intent(ActivityCategoriaSmartTV.this, LoginActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
